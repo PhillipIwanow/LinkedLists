@@ -55,6 +55,33 @@ class LinkedList
         count++;
     }
 
+    public void Insertsion(int data, int index)
+    {
+        LinkedListNode node = new LinkedListNode(data);
+        
+        if (index >= count)
+        {
+            AddNodeToEnd(data);
+            return;
+        }
+
+        if (index == 0)
+        {
+            AddNodeToFront(data);
+            return;
+        }
+        else
+        {
+            LinkedListNode runner = head;
+            for (int i = 0; i < index-1; i++)
+            {
+                runner = runner.next;
+            }
+            node.next = runner.next;
+            runner.next = node;
+            count++;
+        }
+    }
     public void Join(LinkedList lst)
     {
         if (lst.head == null)
